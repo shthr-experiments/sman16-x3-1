@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Sambutan Kepala Sekolah - SMAN 16 Surabaya</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header>
+
+    <nav>
+
+        <div class="logo">
+            <img src="SIXTEEN.png"
+                alt="SMAN 16 Surabaya">
+        </div>
+
+
+        <ul>
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a class="active"
+                    href="kepala-sekolah.html">
+                    Profil
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Kurikulum
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    Kesiswaan
+                </a>
+            </li>
+
+        </ul>
+
+
+        <div class="menu-right">
+
+            <button id="theme-toggle">
+
+                <i class="fa-regular fa-moon"></i>
+
+            </button>
+
+        </div>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     SAMBUTAN KEPALA SEKOLAH
+========================= -->
+
+<section class="kepala-page">
+
+
+    <div class="kepala-container">
+
+
+        <!-- JUDUL -->
+
+        <h1 class="kepala-title">
+
+            SAMBUTAN<br>
+            KEPALA SEKOLAH
+
+        </h1>
+
+
+
+        <!-- BAGIAN BAWAH -->
+
+        <div class="kepala-content">
+
+
+            <!-- FOTO -->
+
+            <div class="kepala-photo">
+
+                <img
+                    src="kepala-sekolah.jpg"
+                    alt="Kepala Sekolah SMAN 16 Surabaya">
+
+
+                <div class="kepala-name">
+
+                    Sunawan Hadi Santoso, S.Pd., M.Pd.
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SAMBUTAN -->
+
+            <div class="kepala-message">
+
+                <p>
+                    Assalamu’alaikum Warahmatullahi Wabarakatuh,
+                    Salam sejahtera untuk kita semua.
+                </p>
+
+
+                <p>
+                    Puji syukur kita panjatkan kehadirat Allah SWT,
+                    Tuhan Yang Maha Esa, atas rahmat dan karunia-Nya
+                    sehingga website resmi SMA Negeri 16 Surabaya ini
+                    dapat terus mempublikasikan berbagai aktivitas,
+                    inovasi, dan prestasi sekolah.
+                </p>
+
+
+                <p>
+                    Website ini hadir sebagai media informasi,
+                    komunikasi, serta transparansi publik bagi seluruh
+                    warga sekolah, alumni, orang tua murid, dan
+                    masyarakat umum.
+                </p>
+
+
+                <p>
+                    Kami terus berkomitmen memberikan pendidikan
+                    berkualitas, membentuk karakter siswa yang
+                    berintegritas, kreatif, serta siap menghadapi
+                    tantangan zaman.
+                </p>
+
+
+                <p>
+                    Semoga keberadaan website ini memberikan manfaat
+                    yang nyata bagi kemajuan pendidikan di
+                    SMAN 16 Surabaya.
+                </p>
+
+
+                <p>
+                    Wassalamu’alaikum Warahmatullahi Wabarakatuh.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- KEMBALI -->
+
+        <a href="index.html"
+            class="back-button kepala-back">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Kembali
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+const themeToggle =
+    document.getElementById("theme-toggle");
+
+
+const savedTheme =
+    localStorage.getItem("theme");
+
+
+/* Ambil tema yang tersimpan */
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+}
+
+
+
+/* =========================
+   UPDATE ICON
+========================= */
+
+function updateThemeIcon() {
+
+    if (!themeToggle) return;
+
+
+    const icon =
+        themeToggle.querySelector("i");
+
+
+    if (
+        document.body.classList.contains("dark-mode")
+    ) {
+
+        icon.classList.remove("fa-moon");
+
+        icon.classList.add("fa-sun");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+
+        icon.classList.add("fa-moon");
+
+    }
+
+}
+
+
+updateThemeIcon();
+
+
+
+/* =========================
+   TOGGLE DARK MODE
+========================= */
+
+if (themeToggle) {
+
+    themeToggle.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.toggle(
+                "dark-mode"
+            );
+
+
+            if (
+                document.body.classList.contains(
+                    "dark-mode"
+                )
+            ) {
+
+                localStorage.setItem(
+                    "theme",
+                    "dark"
+                );
+
+            } else {
+
+                localStorage.setItem(
+                    "theme",
+                    "light"
+                );
+
+            }
+
+
+            updateThemeIcon();
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

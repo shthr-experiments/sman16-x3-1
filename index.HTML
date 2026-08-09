@@ -1,0 +1,370 @@
+        <!DOCTYPE html>
+        <html lang="id">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>SMAN 16 Surabaya-Cerdas Bersinar</title>
+            <link rel="stylesheet" href="style.css">
+
+            <!-- Font Awesome -->   
+            <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        </head>
+        <body>
+
+
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="SIXTEEN.png" alt="">
+                </div>
+
+                <ul>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#">Profil</a></li>
+                    <li><a href="#">Kurikulum</a></li>
+                    <li><a href="#">Kesiswaan</a></li>
+                </ul>
+
+                <div class="menu-right">     
+            <button id="theme-toggle">
+                <i class="fa-regular fa-moon"></i>
+            </button>
+                </div>
+                
+            </nav>
+        </header>
+
+        <section class="hero">
+
+            <img src="sekolah.jpg" class="bg">
+
+            
+            <div class="search">
+                <input type="text" placeholder="Search">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="content">
+                <h1>
+                    SMA <br>
+                    NEGERI 16 <br>
+                    SURABAYA
+                </h1>
+
+                <h2>CERDAS BERSINAR</h2>
+
+                <p>
+                    Cakap, Excellent, Religius, Disiplin, Aktif,
+                    Sportif, Bersih, Sejuk, Indah, dan Anti Narkoba
+                </p>
+
+                <div class="btn-group">
+                    <button class="explore">Eksplore</button>
+
+                    <button class="play">
+                        <i class="fa-solid fa-bookmark"></i>
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+        
+<script>
+/* =========================
+   DARK / LIGHT MODE GLOBAL
+========================= */
+
+const themeToggle = document.getElementById("theme-toggle");
+
+
+// Cek tema yang sebelumnya dipilih
+const savedTheme = localStorage.getItem("theme");
+
+
+// Kalau sebelumnya dark mode
+if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+}
+
+
+// Update icon sesuai tema
+function updateThemeIcon() {
+
+    if (!themeToggle) return;
+
+    const icon = themeToggle.querySelector("i");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        icon.classList.remove("fa-moon");
+        icon.classList.add("fa-sun");
+
+    } else {
+
+        icon.classList.remove("fa-sun");
+        icon.classList.add("fa-moon");
+
+    }
+}
+
+
+// Jalankan saat halaman dibuka
+updateThemeIcon();
+
+
+// Tombol Dark / Light
+if (themeToggle) {
+
+    themeToggle.addEventListener("click", function () {
+
+        document.body.classList.toggle("dark-mode");
+
+
+        // Simpan pilihan
+        if (document.body.classList.contains("dark-mode")) {
+
+            localStorage.setItem("theme", "dark");
+
+        } else {
+
+            localStorage.setItem("theme", "light");
+
+        }
+
+
+        updateThemeIcon();
+
+    });
+
+}
+
+
+
+/* =========================
+   EXPLORE BUTTON
+========================= */
+
+const exploreButton =
+    document.getElementById("explore-button");
+
+
+if (exploreButton) {
+
+    exploreButton.addEventListener("click", function () {
+
+        const aboutSection =
+            document.querySelector(".about-section");
+
+
+        if (aboutSection) {
+
+            aboutSection.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+}
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
+const searchInput =
+    document.getElementById("search-input");
+
+const searchButton =
+    document.getElementById("search-button");
+
+
+function performSearch() {
+
+    if (!searchInput) return;
+
+
+    const keyword =
+        searchInput.value.trim().toLowerCase();
+
+
+    if (keyword === "") {
+        return;
+    }
+
+
+    if (keyword.includes("sixteenagers")) {
+
+        window.location.href =
+            "sixteenagers.html";
+
+        return;
+    }
+
+
+    if (
+        keyword.includes("kepala") ||
+        keyword.includes("sekolah")
+    ) {
+
+        window.location.href =
+            "kepala-sekolah.html";
+
+        return;
+    }
+
+
+    if (
+        keyword.includes("visi") ||
+        keyword.includes("misi")
+    ) {
+
+        window.location.href =
+            "visi-misi.html";
+
+        return;
+    }
+
+
+    alert(
+        "Halaman untuk '" +
+        searchInput.value +
+        "' belum tersedia."
+    );
+
+}
+
+
+if (searchButton) {
+
+    searchButton.addEventListener(
+        "click",
+        performSearch
+    );
+
+}
+
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                performSearch();
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* =========================
+   PARALLAX SIXTEENAGERS
+========================= */
+
+const sixteenPage =
+    document.querySelector(".sixteen-page");
+
+
+if (sixteenPage) {
+
+    document.addEventListener(
+        "mousemove",
+        function (event) {
+
+            const x =
+                (window.innerWidth / 2 - event.clientX) / 50;
+
+            const y =
+                (window.innerHeight / 2 - event.clientY) / 50;
+
+
+            sixteenPage.style.setProperty(
+                "--mouse-x",
+                x + "px"
+            );
+
+
+            sixteenPage.style.setProperty(
+                "--mouse-y",
+                y + "px"
+            );
+
+        }
+    );
+
+}
+</script>
+
+        </body>
+
+
+                
+         <section class="about-section">
+         
+    <h1>ABOUT SIXTEEN</h1>
+
+    <div class="about-container">
+
+        <!-- SIXTEENAGERS -->
+        <a href="sixteenagers.html" class="about-card sixteenagers">
+            <div class="image-box">
+                <img src="sixteenagers.jpg" alt="Sixteenagers">
+            </div>
+            <h2>SIXTEENAGERS</h2>
+        </a>
+
+
+        <!-- KEPALA SEKOLAH -->
+        <a href="kepala-sekolah.html" class="about-card kepala-sekolah">
+            <div class="image-box">
+                <img src="kepala-sekolah.jpg" alt="Kepala Sekolah">
+            </div>
+            <h2>SAMBUTAN KEPALA<br>SEKOLAH</h2>
+        </a>
+
+
+        <!-- VISI MISI -->
+        <a href="visi-misi.html" class="about-card visi-misi">
+            <div class="image-box">
+                <img src="visi-misi.jpg" alt="Visi dan Misi">
+            </div>
+            <h2>VISI & MISI</h2>
+        </a>
+
+    </div>
+
+    <div class=""
+
+    ...
+
+    </section class="about-section">
+
+        ...
+
+    </section>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        // semua JavaScript di atas di sini
+
+    </script>
+
+</body>
+</html>
+
+

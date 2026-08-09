@@ -1,0 +1,1145 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.logo img{
+    width: 130px;
+    height:auto;
+    display:block;
+}
+
+header{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:white;
+}
+
+nav ul{
+    display:flex;
+    gap:50px;
+    list-style:none;
+}
+
+nav a{
+    text-decoration:none;
+    color:#3462b4;
+}
+
+.active{
+    font-weight:bold;
+}
+
+.menu-right{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+.bg{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+
+/* Overlay */
+
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:58%;
+    height:100%;
+    background:rgba(19,77,180,.55);
+}
+
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search{
+    position:absolute;
+    top:90px;
+    left:50%;
+    transform:translateX(-50%);
+    width:450px;
+    display:flex;
+
+    /* Glassmorphism */
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:40px;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.15);
+
+    overflow:hidden;
+}
+
+.search input{
+    flex:1;
+    padding:15px 20px;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+    color:white;
+
+    font-size:16px;
+}
+
+.search input::placeholder{
+    color:rgba(255,255,255,0.85);
+}
+
+.search button{
+    width:70px;
+
+    border:none;
+    background:transparent;
+    color:white;
+
+    border-radius:0 40px 40px 0;
+
+    font-size:20px;
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.search button:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.content{
+    position:absolute;
+    left:50px;
+    top:120px;
+    color:white;
+    max-width:650px;
+}
+
+.content h1{
+    font-size:110px;
+    line-height:0.95;
+    font-weight:900;
+}
+
+.content h2{
+    margin-top:35px;
+    font-size:45px;
+}
+
+.content p{
+    margin-top:10px;
+    font-size:20px;
+    width:600px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn-group{
+    display:flex;
+    gap:15px;
+    margin-top:40px;
+}
+
+.explore{
+    width:210px;
+    height:60px;
+    border:none;
+    border-radius:15px;
+
+    font-size:30px;
+    color:#2556b0;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.play{
+    width:60px;
+    height:60px;
+
+    border:none;
+    border-radius:50%;
+
+    background:white;
+    color:#2556b0;
+
+    font-size:25px;
+    cursor:pointer;
+}
+
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+#theme-toggle{
+    background:transparent;
+    border:none;
+
+    color:#3462b4;
+    font-size:22px;
+
+    cursor:pointer;
+    padding:8px;
+
+    transition:all 0.3s ease;
+}
+
+#theme-toggle:hover{
+    transform:rotate(20deg) scale(1.1);
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark-mode nav{
+    background:#111;
+}
+
+body.dark-mode nav a{
+    color:white;
+}
+
+body.dark-mode #theme-toggle{
+    color:white;
+}
+
+
+/* Background */
+
+body.dark-mode .bg{
+    filter:brightness(45%);
+}
+
+
+/* Overlay */
+
+body.dark-mode .overlay{
+    background:rgba(0,0,0,0.55);
+}
+
+
+/* Search Dark Mode */
+
+body.dark-mode .search{
+    background:rgba(0,0,0,0.20);
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .search input{
+    background:transparent;
+    color:white;
+}
+
+body.dark-mode .search input::placeholder{
+    color:rgba(255,255,255,0.65);
+}
+
+body.dark-mode .search button{
+    background:transparent;
+    color:white;
+}
+
+body.dark-mode .search button:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+
+/* Explore */
+
+body.dark-mode .explore{
+    background:#222;
+    color:white;
+}
+
+
+/* Bookmark */
+
+body.dark-mode .play{
+    background:#222;
+    color:white;
+}
+
+
+.about-section{
+    min-height:100vh;
+    position:relative;
+
+    background:
+        
+        url("about-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    padding-top:45px;
+    text-align:center;
+}
+
+
+.about-section > h1{
+    color:white;
+    font-size:60px;
+    font-weight:900;
+
+    text-shadow:
+        3px 3px 0 #555,
+        0 5px 15px rgba(0,0,0,.5);
+
+    margin-bottom:45px;
+}
+
+
+/* Container */
+
+.about-container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:80px;
+}
+
+
+/* Card */
+
+.about-card{
+    width:245px;
+
+    text-decoration:none;
+    color:white;
+
+    display:block;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+
+/* Gambar */
+
+.image-box{
+    width:245px;
+    height:310px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    border:9px solid white;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+
+.image-box img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .5s ease;
+}
+
+
+/* Judul */
+
+.about-card h2{
+    margin-top:12px;
+
+    font-size:21px;
+    font-weight:900;
+
+    color:white;
+
+    text-shadow:2px 2px 5px rgba(0,0,0,.7);
+}
+
+
+/* Hover */
+
+.about-card:hover{
+    transform:translateY(-15px);
+}
+
+
+.about-card:hover .image-box{
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5);
+}
+
+
+.about-card:hover img{
+    transform:scale(1.08);
+}
+
+
+/* Warna border masing-masing */
+
+.sixteenagers .image-box{
+    border-color:#55c77a;
+}
+
+.kepala-sekolah .image-box{
+    border-color:#ffd34d;
+}
+
+.visi-misi .image-box{
+    border-color:#1da9df;
+}
+
+.sixteen-page{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:120px 80px;
+
+    position:relative;
+    overflow:hidden;
+
+    color:white;
+}
+/* TAMBAHAN BANG */
+/* Background blur */
+.sixteen-page{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:120px 80px;
+
+    position:relative;
+    overflow:hidden;
+
+    color:white;
+}
+
+
+/* =========================
+   BACKGROUND BLUR
+========================= */
+
+.sixteen-page::before{
+    content:"";
+
+    position:absolute;
+    inset:-30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.35)
+        ),
+        url("sixteenagers-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(10px);
+
+    transform:scale(1.08);
+
+    z-index:0;
+
+    transition:transform .3s ease;
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+.sixteen-content{
+    position:relative;
+    z-index:1;
+
+    max-width:700px;
+
+    animation:contentIn 1s ease forwards;
+}
+
+
+.small-title{
+    display:block;
+
+    font-size:18px;
+    letter-spacing:6px;
+    font-weight:bold;
+
+    color:#55c8ff;
+
+    opacity:0;
+    animation:fadeUp .8s ease .2s forwards;
+}
+
+
+.sixteen-content h1{
+    font-size:85px;
+    line-height:1;
+
+    margin:15px 0 30px;
+
+    font-weight:900;
+
+    opacity:0;
+    animation:fadeUp .8s ease .4s forwards;
+}
+
+
+.sixteen-content p{
+    font-size:19px;
+    line-height:1.7;
+
+    margin-bottom:15px;
+
+    color:#eee;
+
+    opacity:0;
+    animation:fadeUp .8s ease .6s forwards;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+.back-button{
+    display:inline-flex;
+
+    align-items:center;
+    gap:10px;
+
+    margin-top:30px;
+
+    padding:13px 25px;
+
+    border-radius:30px;
+
+    background:white;
+    color:#2556b0;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    opacity:0;
+
+    animation:fadeUp .8s ease .8s forwards;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+
+.back-button:hover{
+    transform:translateX(-7px);
+    background:#eaf3ff;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes contentIn{
+
+    from{
+        transform:translateX(-30px);
+    }
+
+    to{
+        transform:translateX(0);
+    }
+
+}
+        /*TAMBAHAN CACAKKU*/
+.sixteen-page::before{
+    content:"";
+
+    position:absolute;
+    inset:-30px;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.35)
+        ),
+        url("halaman\ e\ sixteenagers.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(1px);
+
+    transform:
+        translate(
+            var(--mouse-x, 0px),
+            var(--mouse-y, 0px)
+        )
+        scale(1.08);
+
+    z-index:0;
+
+    transition:transform .15s ease-out;
+}
+/* =========================
+   GLOBAL DARK MODE
+========================= */
+
+body{
+    transition:
+        background .5s ease,
+        color .5s ease;
+}
+
+
+/* =========================
+   ABOUT SIXTEEN DARK MODE
+========================= */
+
+body.dark-mode .about-section{
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.92)
+        ),
+        url("about-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+/* Judul */
+
+body.dark-mode .about-section > h1{
+
+    color:white;
+
+    text-shadow:
+        3px 3px 0 #111,
+        0 5px 20px rgba(0,0,0,.9);
+
+}
+
+
+/* Card */
+
+body.dark-mode .about-card{
+
+    filter:brightness(.8);
+
+}
+
+
+body.dark-mode .about-card:hover{
+
+    filter:brightness(1);
+
+}
+
+
+/* Foto */
+
+body.dark-mode .image-box{
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.8);
+
+}
+
+
+/* Tulisan */
+
+body.dark-mode .about-card h2{
+
+    color:white;
+
+    text-shadow:
+        2px 2px 6px rgba(0,0,0,.9);
+
+}
+
+
+/* =========================
+   SMOOTH TRANSITION
+========================= */
+
+.about-section,
+.about-section h1,
+.about-card,
+.about-card h2,
+.image-box{
+
+    transition:
+        background .5s ease,
+        color .5s ease,
+        filter .5s ease,
+        box-shadow .5s ease;
+
+}
+/* =====================================================
+   HALAMAN KEPALA SEKOLAH
+===================================================== */
+
+.kepala-page{
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:100px 6% 50px;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+
+/* =====================================================
+   BACKGROUND BLUR
+===================================================== */
+
+.kepala-page::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-30px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.30)
+        ),
+
+        url("sekolah.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    filter:blur(5px);
+
+    transform:scale(1.08);
+
+    z-index:0;
+
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.kepala-container{
+
+    position:relative;
+
+    z-index:1;
+
+    width:100%;
+
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.kepala-title{
+
+    font-size:70px;
+
+    line-height:.95;
+
+    font-weight:900;
+
+    color:#ffc400;
+
+    text-shadow:
+
+        4px 4px 0 #8a6500,
+
+        0 8px 20px rgba(0,0,0,.6);
+
+    margin-bottom:25px;
+
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.kepala-content{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:25px;
+
+}
+
+
+/* =====================================================
+   FOTO
+===================================================== */
+
+.kepala-photo{
+
+    width:270px;
+
+    min-width:270px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+
+        0 15px 40px rgba(0,0,0,.45);
+
+}
+
+
+.kepala-photo img{
+
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+
+/* =====================================================
+   NAMA KEPALA SEKOLAH
+===================================================== */
+
+.kepala-name{
+
+    background:#ffc400;
+
+    color:#fff;
+
+    font-weight:900;
+
+    font-size:15px;
+
+    text-align:center;
+
+    padding:9px 5px;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,.5);
+
+}
+
+
+/* =====================================================
+   SAMBUTAN / GLASS CARD
+===================================================== */
+
+.kepala-message{
+
+    flex:1;
+
+    max-width:900px;
+
+    padding:15px 20px;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.25),
+            rgba(255,255,255,.10)
+        );
+
+    border:1px solid
+        rgba(255,255,255,.55);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    box-shadow:
+
+        0 15px 40px rgba(0,0,0,.25);
+
+}
+
+
+.kepala-message p{
+
+    font-size:18px;
+
+    line-height:1.45;
+
+    margin-bottom:6px;
+
+    color:white;
+
+    font-weight:500;
+
+    text-shadow:
+        1px 1px 3px rgba(0,0,0,.7);
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.kepala-back{
+
+    margin-top:25px;
+
+    display:inline-flex;
+
+}
+
+
+/* =====================================================
+   DARK MODE
+===================================================== */
+
+body.dark-mode .kepala-page::before{
+
+    background:
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.82),
+            rgba(0,0,0,.65)
+        ),
+
+        url("sekolah.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+body.dark-mode .kepala-message{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.25)
+        );
+
+    border-color:
+        rgba(255,255,255,.25);
+
+    box-shadow:
+
+        0 15px 45px rgba(0,0,0,.65);
+
+}
+
+
+body.dark-mode .kepala-photo{
+
+    background:rgba(0,0,0,.3);
+
+    border-color:
+        rgba(255,255,255,.3);
+
+}
+
+
+body.dark-mode .kepala-name{
+
+    background:#d6a500;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width:900px){
+
+    .kepala-page{
+
+        padding:
+            120px 30px 50px;
+
+    }
+
+
+    .kepala-title{
+
+        font-size:50px;
+
+    }
+
+
+    .kepala-content{
+
+        flex-direction:column;
+
+        align-items:center;
+
+    }
+
+
+    .kepala-photo{
+
+        width:280px;
+
+    }
+
+
+    .kepala-message{
+
+        width:100%;
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .kepala-title{
+
+        font-size:38px;
+
+    }
+
+
+    .kepala-message p{
+
+        font-size:15px;
+
+    }
+
+
+    .kepala-photo{
+
+        width:230px;
+
+        min-width:230px;
+
+    }
+
+
+    .kepala-photo img{
+
+        height:290px;
+
+    }
+
+}
